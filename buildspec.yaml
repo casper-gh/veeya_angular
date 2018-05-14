@@ -1,9 +1,9 @@
 version: 0.1
 
-env:
-    variables:
-        S3_BUCKET: "getveeya.com"
-        CF_ID: "E2MLBJ1HEUINX1"
+environment_variables:
+ plaintext:
+  S3_BUCKET: "getveeya.com"
+  CF_ID: "E2MLBJ1HEUINX1"
 
 phases:
     install:
@@ -20,13 +20,13 @@ phases:
     post_build:
         commands:
         # Clear S3 bucket.
-        - aws s3 rm s3://${S3_BUCKET} --recursive
+        - aws s3 rm s3://$S3_BUCKET --recursive
         - echo S3 bucket is cleared.
         # Copy dist folder to S3 bucket
-        - aws s3 cp dist s3://${S3_BUCKET} --recursive
+        - aws s3 cp dist s3://$S3_BUCKET --recursive
         - echo Build completed on `date`
         # Create invalidation
-        - aws cloudfront create-invalidation --distribution-id ${CF_ID} --paths "/*"
+        - aws cloudfront create-invalidation --distribution-id $CF_ID --paths "/*"
 
 artifacts:
     files:
