@@ -3760,9 +3760,9 @@ var Zone$1 = (function (global) {
                         // Get rid of the path so that we don't accidentally find function name in path.
                         // In chrome the separator is `(` and `@` in FF and safari
                         // Chrome: at Zone.run (zone.js:100)
-                        // Chrome: at Zone.run (http://localhost:9876/base/build/lib/zone.js:100:24)
-                        // FireFox: Zone.prototype.run@http://localhost:9876/base/build/lib/zone.js:101:24
-                        // Safari: run@http://localhost:9876/base/build/lib/zone.js:101:24
+                        // Chrome: at Zone.run (https://api.getveeya.com:9876/base/build/lib/zone.js:100:24)
+                        // FireFox: Zone.prototype.run@https://api.getveeya.com:9876/base/build/lib/zone.js:101:24
+                        // Safari: run@https://api.getveeya.com:9876/base/build/lib/zone.js:101:24
                         var fnName = frame.split('(')[0].split('@')[0];
                         var frameType = FrameType.transition;
                         if (fnName.indexOf('ZoneAwareError') !== -1) {

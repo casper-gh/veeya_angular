@@ -13,7 +13,7 @@ export class InviteService {
 
   constructor(private http: Http) { }
 
-  private serverApi = 'http://localhost:3000/';
+  private serverApi = 'https://api.getveeya.com:3000/';
 
   public inviteUser(email: string, userType: string, currentUserId: string) {
     let URI = this.serverApi + "user/inviteuser";
